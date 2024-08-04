@@ -1,8 +1,7 @@
 services:
   mysql:
     container_name: mysql
-    build:
-      context: https://github.com/hulaneoTi/Container-Mysql.git
+    image: mysql:latest
     ports:
       - 3306:3306
     restart: always
@@ -12,4 +11,5 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - ./mysql:/var/lib/mysql
+      - ./databases/init:/docker-entrypoint-initdb.d
 networks: {}
